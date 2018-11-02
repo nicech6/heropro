@@ -1,0 +1,34 @@
+<view class="swiper-container">
+  <swiper indicator-dots="{{indicatorDots}}" 
+  autoplay="{{autoplay}}" 
+  interval="{{interval}}" 
+  duration="{{duration}}" 
+  circular="{{duration}}" 
+  current="{{swiperCurrent}}" 
+  bindchange="swiperChange" 
+  indicator-active-color='{{indicatorActiveColor}}' 
+  indicator-color="{{indicatorColor}}" 
+  previous-margin="0px"
+  next-margin="0px" class="swiper">
+    <block wx:for="{{images}}" wx:key="unique">
+      <swiper-item>
+        <image src="{{item}}" class="img" bindtap="swipclick" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<!-- <view class="dots">
+      <block wx:for="{{images}}" wx:key="unique">
+        <view class="dots{{index == swiperCurrent ? ' active' : ''}}" bindtap="chuangEvent" id="{{index}}">{{index+1}}</view>
+      </block>
+    </view> -->
+
+<!-- <view class="index-nav">
+        <block wx:for-items="{{navs}}" wx:key="unique">
+            <view class="l-c-c" catchtap="go" data-type="{{item.text}}">
+                <image src="{{item.image}}" class="slide-image"/>
+                <text>{{item.text}}</text>
+            </view>
+        </block>
+</view> -->

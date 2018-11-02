@@ -1,0 +1,6 @@
+/*垂直水平居中对齐*/
+.l-c-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
