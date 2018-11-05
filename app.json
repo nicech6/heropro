@@ -1,33 +1,35 @@
 {
-  "pages":[
+  "pages": [
+    "pages/login/login", 
     "pages/index/index",
-    "pages/style/layout",
-    "pages/detail/detail"
+  
+    "pages/mine/mine",
+    "pages/detail/detail",
+    "pages/hero/hero"
   ],
   "window": {
-      "navigationBarBackgroundColor": "#BBDEF8",
-      "navigationBarTitleText": "测试",
-      "navigationBarTextStyle": "white"
-    }
-  ,
+    "navigationBarBackgroundColor": "#BBDEF8",
+    "navigationBarTitleText": "Hero",
+    "navigationBarTextStyle": "white"
+  },
   "tabBar": {
     "color": "#dddddd",
     "selectedColor": "#3cc51f",
     "borderStyle": "white",
     "backgroundColor": "#ffffff",
-      "list":[
-        {
-          "text":"首页",
-          "iconPath": "pages/image/icon_component.png",
-          "selectedIconPath":"pages/image/icon_component_HL.png",
-          "pagePath": "pages/index/index"
-        },
-        {
-          "text":"我的",
-          "iconPath": "pages/image/icon_API.png",
-          "selectedIconPath":"pages/image/icon_API_HL.png",
-          "pagePath": "pages/index/index"
-        }
-      ]
-    }
+    "list": [
+      {
+        "text": "首页",
+        "iconPath": "pages/image/icon_home_not.png",
+        "selectedIconPath": "pages/image/icon_home.png",
+        "pagePath": "pages/index/index"
+      },
+      {
+        "text": "我的",
+        "iconPath": "pages/image/icon_mine_not.png",
+        "selectedIconPath": "pages/image/icon_mine.png",
+        "pagePath": "pages/mine/mine"
+      }
+    ]
+  }
 }

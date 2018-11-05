@@ -24,32 +24,79 @@ swiper-item image {
   height: 100%;
 }
 
-.slide-img {
-  height: 100%;
-  width: 100%;
-  display: inline-block;
-  overflow: hidden;
-}
-
 /*分类*/
 
 .index-nav {
   height: 100;
-  background-color: #fff;
+  padding: 6px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
 }
 
 .index-nav view {
-  flex: 1;
+  flex: 1px;
   flex-direction: column;
-  border-right: 1px solid #4995fa;
+  border-right: 0px solid #4995fa;
+  background-color: #fff;
 }
 
 .index-nav image {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
-.index-nav text {
-  font-size: 16sp;
+.nav-text {
+  font-size: 15px;
+}
+
+.text {
+  font-size: 15px;
+  color: #444;
+  text-align: start;
+}
+
+.line_home {
+  width: 3px;
+  margin-left: 15px;
+  margin-right: 15px;
+  height: 18px;
+  display: inline-block;
+  background-color: #09bb07;
+}
+
+/*列表*/
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.item image {
+  display: block;
+  width: 120px;
+  height: 110px;
+}
+
+.title {
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+
+.title text {
+  font-size: 16px;
+  color: #787878;
+}
+
+.content {
+  font-size: 12px;
+  color: #787878;
+  margin-left: 15px;
+}
+
+.divline {
+  background: #e0e3da;
+  width: 100%;
+  height: 2rpx;
 }

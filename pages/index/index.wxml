@@ -1,15 +1,6 @@
 <view class="swiper-container">
-  <swiper indicator-dots="{{indicatorDots}}" 
-  autoplay="{{autoplay}}" 
-  interval="{{interval}}" 
-  duration="{{duration}}" 
-  circular="{{duration}}" 
-  current="{{swiperCurrent}}" 
-  bindchange="swiperChange" 
-  indicator-active-color='{{indicatorActiveColor}}' 
-  indicator-color="{{indicatorColor}}" 
-  previous-margin="0px"
-  next-margin="0px" class="swiper">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{duration}}" current="{{swiperCurrent}}" bindchange="swiperChange" indicator-active-color='{{indicatorActiveColor}}' indicator-color="{{indicatorColor}}"
+    previous-margin="0px" next-margin="0px" class="swiper">
     <block wx:for="{{images}}" wx:key="unique">
       <swiper-item>
         <image src="{{item}}" class="img" bindtap="swipclick" />
@@ -18,17 +9,33 @@
   </swiper>
 </view>
 
-<!-- <view class="dots">
-      <block wx:for="{{images}}" wx:key="unique">
-        <view class="dots{{index == swiperCurrent ? ' active' : ''}}" bindtap="chuangEvent" id="{{index}}">{{index+1}}</view>
-      </block>
-    </view> -->
+<view class="index-nav">
+  <block wx:for-items="{{navs}}" wx:key="unique">
+    <view class="index-nav" catchtap="go" data-type="{{item.text}}">
+      <image src="{{item.image}}" />
+      <text class='nav-text'>{{item.text}}</text>
+    </view>
+  </block>
+</view>
 
-<!-- <view class="index-nav">
-        <block wx:for-items="{{navs}}" wx:key="unique">
-            <view class="l-c-c" catchtap="go" data-type="{{item.text}}">
-                <image src="{{item.image}}" class="slide-image"/>
-                <text>{{item.text}}</text>
-            </view>
-        </block>
-</view> -->
+<view class='text'>
+  <view class='line_home'></view>
+  <text>以下列表</text>
+</view>
+
+<view class="container">
+  <block wx:for-items="{{items}}" wx:key="unique">
+    <view class='divline'></view>
+    <view class="item">
+      <view class="image">
+        <image src="{{item.imgs[0]}}" />
+      </view>
+      <view>
+        <view class="title">
+          <text>{{item.name}}</text>
+        </view>
+        <text class='content'>{{item.content}}</text>
+      </view>
+    </view>
+  </block>
+</view>
