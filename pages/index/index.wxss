@@ -3,43 +3,40 @@
 }
 
 swiper {
-  height: 421.5rpx;
+  height: 380rpx;
+
 }
 
-swiper-item image {
+.swiper-image {
   width: 100%;
   height: 100%;
+  border-radius: 10px;
 }
 
 .swiper-container {
   position: relative;
 }
 
-.swiper-container .swiper {
-  height: 400rpx;
-}
-
-.swiper-container .swiper .imag {
-  width: 100%;
-  height: 100%;
-}
-
 /*分类*/
 
 .index-nav {
-  height: 100;
+  height: 80px;
   padding: 6px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1rpx 2rpx 1rpx #e0e3da;
+  background-color: #fffff9;
 }
 
-.index-nav view {
+.nav-view {
   flex: 1px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
   flex-direction: column;
-  border-right: 0px solid #4995fa;
-  background-color: #fff;
 }
 
 .index-nav image {
@@ -51,19 +48,19 @@ swiper-item image {
   font-size: 15px;
 }
 
-.text {
-  font-size: 15px;
-  color: #444;
-  text-align: start;
+.line {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.line_home {
-  width: 3px;
+.line_text {
+  font-size: 15px;
+  font-weight: bold;
   margin-left: 15px;
-  margin-right: 15px;
-  height: 18px;
-  display: inline-block;
-  background-color: #09bb07;
+  color: #444;
 }
 
 /*列表*/
@@ -76,6 +73,8 @@ swiper-item image {
 .item image {
   display: block;
   width: 120px;
+  margin: 10px;
+  border-radius: 10px;
   height: 110px;
 }
 
@@ -98,5 +97,7 @@ swiper-item image {
 .divline {
   background: #e0e3da;
   width: 100%;
-  height: 2rpx;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 1px;
 }

@@ -3,34 +3,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    //图片url
-    images: [
-      "http://p6nix480q.bkt.clouddn.com/18-11-3/42215456.jpg",
-      "http://p6nix480q.bkt.clouddn.com/18-11-3/33899259.jpg",
-      "http://p6nix480q.bkt.clouddn.com/18-11-3/4922232.jpg"
-    ],
-    //跳转url
-    links: [
-      "http://shp.qpic.cn/ishow/2735101516/1539591626_-888937974_15089_sProdImgNo_2.jpg/0",
-      "http://shp.qpic.cn/ishow/2735101814/1539845491_-888937974_13650_sProdImgNo_8.jpg/0",
-      "http://shp.qpic.cn/ishow/2735102310/1540261193_704174346_2284_sProdImgNo_2.jpg/0"
-    ],
-    items: [{
-      "name": "虞姬",
-      "price": "100",
-      "content": "虞姬，系项羽帐下的美人，什么名目，是妃子还是舞姬，不清楚。《史记》上只记载了虞姬在项羽被围于垓下。",
-      "imgs": ["http://game.gtimg.cn/images/yxzj/img201606/heroimg/174/174.jpg"]
-    }, {
-      "name": "女娲",
-      "price": "102",
-      'content': "女娲，中国上古神话中的创世神和始母神，又称娲皇，大地之母等。",
-      "imgs": ["http://game.gtimg.cn/images/yxzj/img201606/heroimg/179/179.jpg"]
-    }, {
-      "name": "露娜",
-      "price": "125",
-      "content": "自古以来，在暗夜中隐藏着神秘的刺客一族“荆氏”。他们掌握着代代相传的杀人之剑的秘诀，收受佣金为雇主服务，并且守口如瓶。",
-      "imgs": ["http://game.gtimg.cn/images/yxzj/img201606/heroimg/146/146.jpg"]
-    }],
+    //首页轮播图
+    images: [],
+    //首页列表
+    items: [],
     swiperCurrent: 0,
     indicatorDots: true,
     autoplay: true,
@@ -39,20 +15,21 @@ Page({
     circular: true,
     indicatorActiveColor: '#fff',
     indicatorColor: '#000',
-
+    mPageNo: 1,
+    mPageSize: 10,
     // nav分类
     navs: [{
       image: "../image/tab1.png",
-      text: "花木兰"
+      text: "国际"
     }, {
       image: "../image/tab2.png",
-      text: "妲己"
+      text: "国内"
     }, {
       image: "../image/tab3.png",
-      text: "大乔"
+      text: "财经"
     }, {
       image: "../image/tab4.png",
-      text: "蔡文姬"
+      text: "体育"
     }],
   },
   //轮播图的切换事件
@@ -70,18 +47,13 @@ Page({
   },
   //图片点击事件
   swipclick: function(e) {
-    console.log(this.data.swiperCurrent);
+    console.log(e.currentTarget.dataset.url);
     wx.navigateTo({
-      url: "../detail/detail?source=" + this.data.links[this.data.swiperCurrent]
+      url: "../detail/detail?source=" + e.currentTarget.dataset.url
     })
   },
 
-  onTap: function(event) {
-    wx.switchTab({
-      url: "../posts/post"
-    });
-  },
-
+  // 底部Tab事件
   onTabItemTap(item) {
     // console.log(item.index)
     if (item.index == 0) {
@@ -92,20 +64,69 @@ Page({
     if (item.index == 1) {
       console.log(item.index)
       wx.switchTab({
+        url: '../choice/choice',
+      })
+    }
+    if (item.index == 2) {
+      console.log(item.index)
+      wx.switchTab({
         url: '../mine/mine',
       })
     }
   },
+  //分类事件
   go: function(event) {
+    // wx.navigateTo({
+    //   url: '../hero/hero?type=' + event.currentTarget.dataset.type
+    // })
+    wx.showToast({
+      title: event.currentTarget.dataset.type,
+      icon: '',
+      image: '',
+      duration: 500,
+      mask: true,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
+  //列表事件
+  listClick: function(e) {
+    console.log(`点击了${e.currentTarget.dataset.url}`)
     wx.navigateTo({
-      url: '../hero/hero?type=' + event.currentTarget.dataset.type
+      url: "../detail/detail?source=" + e.currentTarget.dataset.url
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    var that = this
+    // http请求
+    wx.request({
+      url: 'https://v.juhe.cn/weixin/query?',
+      data: {
+        key: "51b774eed86b88ea298b009f9d3e043a",
+        pno: that.data.mPageNo,
+        ps: that.data.mPageSize,
+        dtype: "json"
+      },
+      header: {
+        'content-type': 'application/json',
+      },
+      success: function(res) {
+        if (res.data != null && res.data.result != null) {
+          console.log(res.data)
+          if (res.data.result.list.length > 3) {
+            that.setData({
+              images: res.data.result.list.slice(0, 3),
+              items: res.data.result.list.slice(3, res.data.result.list.length)
+            })
+          }
+        }
+      },
+      fail: function(res) {}
+    })
   },
 
   /**
@@ -140,14 +161,19 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    setTimeout(function() {
+      wx.stopPullDownRefresh()
+    }, 2000)
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
+    //上拉加载更多
+    this.setData({
 
+    })
   },
 
   /**

@@ -1,0 +1,73 @@
+/* pages/switchtab/switchtab.wxss */
+
+.swiper-tab {
+  width: 100%;
+  text-align: center;
+  line-height: 80rpx;
+  border-bottom: 1px solid #000;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.tab-item {
+  flex: 1;
+  font-size: 30rpx;
+  display: inline-block;
+  color: #777;
+}
+
+.on {
+  color: #d4237a;
+  border-bottom: 1px solid #d4237a;
+}
+
+.swiper {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.swiper view {
+  text-align: center;
+}
+
+/*列表*/
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.item image {
+  display: block;
+  width: 120px;
+  margin: 10px;
+  border-radius: 10px;
+  height: 110px;
+}
+
+.title {
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+
+.title text {
+  font-size: 16px;
+  color: #787878;
+}
+
+.content {
+  font-size: 12px;
+  color: #787878;
+  margin-left: 15px;
+}
+
+.divline {
+  background: #e0e3da;
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 1px;
+}

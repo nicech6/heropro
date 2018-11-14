@@ -1,33 +1,39 @@
 {
   "pages": [
-    "pages/login/login", 
+    "pages/login/login",
     "pages/index/index",
-  
     "pages/mine/mine",
     "pages/detail/detail",
-    "pages/hero/hero"
+    "pages/switchtab/switchtab"
   ],
   "window": {
     "navigationBarBackgroundColor": "#BBDEF8",
     "navigationBarTitleText": "Hero",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#dddddd",
-    "selectedColor": "#3cc51f",
+    "selectedColor": "#d4237a",
     "borderStyle": "white",
     "backgroundColor": "#ffffff",
     "list": [
       {
         "text": "首页",
-        "iconPath": "pages/image/icon_home_not.png",
-        "selectedIconPath": "pages/image/icon_home.png",
+        "iconPath": "pages/image/home_nor.png",
+        "selectedIconPath": "pages/image/home.png",
         "pagePath": "pages/index/index"
       },
       {
+        "text": "分类",
+        "iconPath": "pages/image/fenlei_nor.png",
+        "selectedIconPath": "pages/image/fenlei.png",
+        "pagePath": "pages/switchtab/switchtab"
+      },
+      {
         "text": "我的",
-        "iconPath": "pages/image/icon_mine_not.png",
-        "selectedIconPath": "pages/image/icon_mine.png",
+        "iconPath": "pages/image/me_nor.png",
+        "selectedIconPath": "pages/image/me.png",
         "pagePath": "pages/mine/mine"
       }
     ]

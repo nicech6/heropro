@@ -1,3 +1,4 @@
-<view class='contanier'>
+<view class='container'>
+  <image class='img' src=' ../image/splash.png ' mode="scaleToFill"></image>
   <button class="btn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">微信登录</button>
 </view>

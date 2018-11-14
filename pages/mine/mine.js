@@ -39,21 +39,21 @@ Page({
       },
     })
 
-    // 模拟http请求
-    wx.request({
-      url: 'http://a1.dytest.dayi.im/fudaojun/teacher/audit/headimage/',
-      header: {
-        'content-type': 'application/json',
-        "token": "924190bbe7d41fee6b5517e4f08f80fc"
-      },
-      success: function(res) {
-        // console.log(res.data.data)
-        var avatarUrl = 'userInfo.avatarUrl'
-        // that.setData({
-        //   [avatarUrl]: res.data.data
-        // })
-      }
-    })
+    //模拟http请求
+    // wx.request({
+    //   url: 'http://a1.dytest.dayi.im/fudaojun/teacher/audit/headimage/',
+    //   header: {
+    //     'content-type': 'application/json',
+    //     "token": "924190bbe7d41fee6b5517e4f08f80fc"
+    //   },
+    //   success: function(res) {
+    //     // console.log(res.data.data)
+    //     var avatarUrl = 'userInfo.avatarUrl'
+    //     // that.setData({
+    //     //   [avatarUrl]: res.data.data
+    //     // })
+    //   }
+    // })
   },
 
   /**

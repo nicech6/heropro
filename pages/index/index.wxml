@@ -1,9 +1,9 @@
 <view class="swiper-container">
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{duration}}" current="{{swiperCurrent}}" bindchange="swiperChange" indicator-active-color='{{indicatorActiveColor}}' indicator-color="{{indicatorColor}}"
-    previous-margin="0px" next-margin="0px" class="swiper">
+    previous-margin="10px" next-margin="10px" class="swiper">
     <block wx:for="{{images}}" wx:key="unique">
       <swiper-item>
-        <image src="{{item}}" class="img" bindtap="swipclick" />
+        <image src="{{item.thumbnail_pic_s}}" class="swiper-image" bindtap="swipclick" data-url="{{item.url}}"/>
       </swiper-item>
     </block>
   </swiper>
@@ -11,30 +11,29 @@
 
 <view class="index-nav">
   <block wx:for-items="{{navs}}" wx:key="unique">
-    <view class="index-nav" catchtap="go" data-type="{{item.text}}">
+    <view class="nav-view" catchtap="go" data-type="{{item.text}}">
       <image src="{{item.image}}" />
       <text class='nav-text'>{{item.text}}</text>
     </view>
   </block>
 </view>
 
-<view class='text'>
-  <view class='line_home'></view>
-  <text>以下列表</text>
+<view class='line'>
+  <text class='line_text'>头条新闻</text>
 </view>
 
-<view class="container">
+<view>
   <block wx:for-items="{{items}}" wx:key="unique">
     <view class='divline'></view>
-    <view class="item">
+    <view class="item" data-url="{{item.url}}" bindtap='listClick'>
       <view class="image">
-        <image src="{{item.imgs[0]}}" />
+        <image src="{{item.thumbnail_pic_s}}" />
       </view>
       <view>
         <view class="title">
-          <text>{{item.name}}</text>
+          <text>{{item.title}}</text>
         </view>
-        <text class='content'>{{item.content}}</text>
+        <text class='content'>{{item.author_name}}</text>
       </view>
     </view>
   </block>
